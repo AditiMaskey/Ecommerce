@@ -1,0 +1,60 @@
+{% extends 'master/parent.html' %}
+{% block content %}
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a> <span class="divider">/</span></li>
+            <li><a href="#">Items</a> <span class="divider">/</span></li>
+            <li class="active">Preview</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                {% if productData.image %}
+                                    <a href="#"> <img src="{{ productData.image.url }}" alt="" style="width:100%"></a>
+                                {% endif %}
+                            </div>
+                            {% for pImage in  productData.productimage_set.all %}
+                                <div class="item">
+                                    <a href="#"> <img src="{{ pImage.images.url }}" alt="" style="width:100%"></a>
+                                </div>
+                            {% endfor %}
+
+
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>{{ productData.name }}</h3>
+                    <hr class="soft"/>
+
+                    <form class="form-horizontal qtyFrm">
+                        <div class="control-group">
+                            <label class="control-label"><span>Rs: {{ productData.price }}</span></label>
+                            <div class="controls">
+                                <input type="number" class="span6" placeholder="Qty.">
+                            </div>
+                        </div>
+                        <h4>100 items in stock</h4>
+                        <p>Nowadays the lingerie industry is one of the most successful business spheres.
+                            Nowadays the lingerie industry is one of ...
+                        <p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart
+                            </button>
+                    </form>
+                </div>
+            </div>
+
+            <p>
+                {{ productData.description |safe }}
+            </p>
+
+
+        </div>
+    </div>
+    </div> <!-- Body wrapper -->
+{% endblock %}
