@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount'
             ],
         },
     },
@@ -133,7 +134,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# ckeditor
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
@@ -142,4 +143,14 @@ CKEDITOR_CONFIGS = {
     },
 }
 
+# cart
 CART_SESSION_ID = 'cart'
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '4729b910f883e8'
+EMAIL_HOST_PASSWORD = 'f4cf92de47812d'
+EMAIL_USE_TLS = True

@@ -93,14 +93,14 @@ Navigation Bar Section
 			  <li class="active"><a href="{% url 'index' %}">Home	</a></li>
 			  <li class=""><a href="{% url 'category' %}">Category</a></li>
 			  <li class=""><a href="{% url 'product' %}">Products</a></li>
-			  <li class=""><a href="">Contact</a></li>
+			  <li class=""><a href="{%url 'contact' %}">Contact</a></li>
 
 
 			
 			</ul>
-			<form action="#" class="navbar-search pull-left">
+			{% comment %} <form action="#" class="navbar-search pull-left">
 			  <input type="text" placeholder="Search" class="search-query span2">
-			</form>
+			</form> {% endcomment %}
 			<ul class="nav pull-right">
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
